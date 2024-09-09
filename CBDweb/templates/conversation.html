@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+Personal Information
+{% endblock %}
+
+{% block main_script %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap');
+    body {
+        font-family: "Prompt", sans-serif;
+    }
+    .hidden {
+        display: none;
+    }
+    .next {
+        margin-top: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block question %}
+<div class="container mt-5">
+    <h2>Conversation Information</h2>
+    <form method="POST" action="{{ url_for('conversation_page') }}">
+        {{ form.hidden_tag() }}
+        <div id="Talk" class="form-group">
+            {{ form.talk.label }}
+            {{ form.talk() }}
+        </div>
+        <div id="NoTalk" class="form-group">
+            {{ form.id_35() }}
+            {{ form.id_35.label }}
+        </div>
+        <div id="YesTalk" class="form-group">
+            {{ form.id_30() }}
+            {{ form.id_30.label }}
+        </div>
+        <div id="CanTalk" class="form-group">
+            {{ form.id_32() }}
+            {{ form.id_32.label }}
+        </div>
+        <div id="Voice" class="form-group">
+            {{ form.id_31() }}
+            {{ form.id_31.label }}
+            <br>
+            {{ form.id_36() }}
+            {{ form.id_36.label }}
+        </div>
+        <div id="HardtoTalk" class="form-group">
+            {{ form.id_34() }}
+            {{ form.id_34.label }}
+            <br>
+            {{ form.id_37() }}
+            {{ form.id_37.label }}
+            <br>
+            {{ form.id_38() }}
+            {{ form.id_38.label }}
+            <br>
+            {{ form.timeoftalk.label }}
+            {{ form.timeoftalk() }}
+            
+        </div>
+
+
+        <div class="next">
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+    
+{% block Q_script %}
+<script>
+   
+</script>
+{% endblock %}
