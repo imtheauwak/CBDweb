@@ -19,13 +19,13 @@ class PregnantForm(FlaskForm):
                                       ('id_123', 'คลอดครั้งก่อนเวลาเจ็บครรภ์<1ชม.')])
 
 class RespiratoryForm(FlaskForm):
-    breath = RadioField('หายใจได้หรือไม่', choices=[('canbreath', 'YES'), ('cannotbreath', 'NO'), ('id_11','ทำให้ทางหายใจโล่งได้แล้ว')], validators=[DataRequired()])
+    breath = RadioField('หายใจได้หรือไม่', choices=[('canbreath', 'YES'), ('cannotbreath', 'NO'), ('id_11','ทำให้ทางหายใจโล่งได้แล้ว')])
     id_13 = BooleanField('ไม่หายใจหลังหยุดชัก')
-    to_breath = RadioField('สามารถทำให้หายใจโดย', choices=[('id_1', 'ต้องลุกนั่งเพื่อให้หายใจได้'), ('id_2', 'ต้องพิงผนังเพื่อให้หายใจได้'), ('id_3', 'ต้องยืนเพื่อให้หายใจได้')])
+    to_breath = RadioField('สามารถทำให้หายใจโดย', choices=[('id_1', 'ต้องลุกนั่งเพื่อให้หายใจได้'), ('id_2', 'ต้องพิงผนังเพื่อให้หายใจได้'), ('id_3', 'ต้องยืนเพื่อให้หายใจได้'), ('none', 'none')])
     
     # YES
     breathable = RadioField('ลักษณะการหายใจ', 
-                            choices=[('loud', 'เสียงดัง'), ('swift', 'หายใจเร็ว'), ('stuck', 'หายใจขัด'), ('id_18', 'เจ็บขณะหายใจ'),('id_19','ออกซิเจนหมดถัง')], validators=[DataRequired()])
+                            choices=[('loud', 'เสียงดัง'), ('swift', 'หายใจเร็ว'), ('stuck', 'หายใจขัด'), ('id_18', 'เจ็บขณะหายใจ'),('id_19','ออกซิเจนหมดถัง')])
     ## Loud
     id_15 = BooleanField('หายใจดังโครกคราก')
 

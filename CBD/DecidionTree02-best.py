@@ -46,6 +46,6 @@ print(confusion_matrix(y_test, y_pred))
 # Extract a single tree from the forest
 estimator = rf_clf.estimators_[0]
 
-# plt.figure(figsize=(15,10))
-# tree.plot_tree(estimator, feature_names=symptoms.columns, class_names=rf_clf.classes_, filled=True)
-# plt.show()
+plt.figure(figsize=(15,10))
+tree.plot_tree(estimator, feature_names=symptoms.columns, class_names=rf_clf.classes_, filled=True)
+plt.show()
