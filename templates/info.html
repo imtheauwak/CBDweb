@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+Personal Information
+{% endblock %}
+
+{% block main_script %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap');
+    body {
+        font-family: "Prompt", sans-serif;
+    }
+    .hidden {
+        display: none;
+    }
+    .next {
+        margin-top: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block question %}
+<div class="container mt-5">
+    <h2>Personal Information</h2>
+    <form method="POST" action="{{ url_for('info') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.fullname.label }}
+            {{ form.fullname(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.age.label }}
+            {{ form.age(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.gender.label }}
+            {{ form.gender(value="female") }} 
+            <!-- {{ form.gender(value="male", class="form-check-input") }}  -->
+        </div>
+        <div id="pregnant-checkbox" class="form-group hidden">
+            {{ form.pregnant(class="form-check-input") }} {{ form.pregnant.label }}
+        </div>
+        <div class="next">
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+    
+{% block Q_script %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const femaleRadio = document.querySelector('input[name="gender"][value="female"]');
+        const maleRadio = document.querySelector('input[name="gender"][value="male"]');
+        const pregnantCheckbox = document.getElementById('pregnant-checkbox');
+
+        function togglePregnantCheckbox() {
+            if (femaleRadio.checked) {
+                pregnantCheckbox.classList.remove('hidden');
+            } else {
+                pregnantCheckbox.classList.add('hidden');
+            }
+        }
+        femaleRadio.addEventListener('change', togglePregnantCheckbox);
+        maleRadio.addEventListener('change', togglePregnantCheckbox);
+
+        togglePregnantCheckbox();
+    });
+</script>
+{% endblock %}

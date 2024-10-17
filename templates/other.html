@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+Personal Information
+{% endblock %}
+
+{% block main_script %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap');
+    body {
+        font-family: "Prompt", sans-serif;
+    }
+    .hidden {
+        display: none;
+    }
+    .next {
+        margin-top: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block question %}
+<div class="container mt-5">
+    <h2>Other Information</h2>
+    <form method="POST" action="{{ url_for('other_page') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.id_33() }}
+            {{ form.id_33.label }}
+            <br>
+            {{ form.id_357() }}
+            {{ form.id_357.label }}
+            <br>
+            {{ form.id_358() }}
+            {{ form.id_358.label }}
+            <br>
+            {{ form.id_359() }}
+            {{ form.id_359.label }}
+            <br>
+            {{ form.id_360() }}
+            {{ form.id_360.label }}
+            <br>
+            {{ form.id_361() }}
+            {{ form.id_361.label }}
+            <br>
+            {{ form.id_362() }}
+            {{ form.id_362.label }}
+            <br>
+            {{ form.id_363() }}
+            {{ form.id_363.label }}
+            <br>
+            {{ form.id_364() }}
+            {{ form.id_364.label }}
+            <br>
+            {{ form.id_365() }}
+            {{ form.id_365.label }}
+            <br>
+            {{ form.id_366() }}
+            {{ form.id_366.label }}
+            <br>
+            {{ form.id_367() }}
+            {{ form.id_367.label }}
+            <br>
+            {{ form.id_368() }}
+            {{ form.id_368.label }}
+            <br>
+            {{ form.id_369() }}
+            {{ form.id_369.label }}
+            <br>
+            {{ form.id_370() }}
+            {{ form.id_370.label }}
+            <br>
+          
+            
+            
+        </div>
+        
+        <div class="next">
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+    
+{% block Q_script %}
+<script>
+   
+</script>
+{% endblock %}

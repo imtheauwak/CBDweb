@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+Personal Information
+{% endblock %}
+
+{% block main_script %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap');
+    body {
+        font-family: "Prompt", sans-serif;
+    }
+    .hidden {
+        display: none;
+    }
+    .next {
+        margin-top: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block question %}
+<div class="container mt-5">
+    <h2>Movememt Information</h2>
+    <form method="POST" action="{{ url_for('movement_page') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.id_42() }}
+            {{ form.id_42.label }}
+            <br>
+            {{ form.id_43() }}
+            {{ form.id_43.label }}
+            <br>
+            {{ form.id_44() }}
+            {{ form.id_44.label }}
+            <br>
+            {{ form.id_45() }}
+            {{ form.id_45.label }}
+            <br>
+            {{ form.id_46() }}
+            {{ form.id_46.label }}
+            <br>
+            {{ form.id_47() }}
+            {{ form.id_47.label }}
+            <br>
+            {{ form.id_49() }}
+            {{ form.id_49.label }}
+            <br>
+            {{ form.id_50() }}
+            {{ form.id_50.label }}
+            <br>
+            {{ form.id_51() }}
+            {{ form.id_51.label }}
+            <br>
+            {{ form.id_52() }}
+            {{ form.id_52.label }}
+            <br>
+            {{ form.id_53() }}
+            {{ form.id_53.label }}
+            <br>
+            {{ form.paralyze.label }}
+            {{ form.paralyze() }}
+            
+            
+            
+        </div>
+        
+        <div class="next">
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+    
+{% block Q_script %}
+<script>
+   
+</script>
+{% endblock %}

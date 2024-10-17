@@ -1,0 +1,332 @@
+{% extends "layout.html" %}
+
+{% block title %} 
+Conciousness Information
+{% endblock %}
+
+{% block main_script %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap');
+    body {
+        font-family: "Prompt", sans-serif;
+    }
+    .hidden {
+        display: none;
+    }
+    .next {
+        margin-top: 15px;
+    }
+    .dropbtn {
+        /* background-color: #4CAF50; */
+        color: rgb(0, 0, 0);
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        }
+
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+        background-color: none;
+        }
+</style>
+
+{% endblock %}
+
+{% block question %}
+<div class="container mt-5">
+    <h2>Conciousness Information</h2>
+    <form method="POST" action="{{ url_for('conciousness_page') }}">
+        {{ form.hidden_tag() }}
+        <div id="Conciousness"class="form-group">
+            {{ form.conciousness.label }}
+            {{ form.conciousness() }}
+        </div>
+        <div id="NoConcious" class="form-group hidden">
+            
+            {{ form.id_336.label }} 
+            {{ form.id_336() }}
+            
+            {{ form.id_335() }}
+            {{ form.id_335.label }}
+        </div>
+        <div id="NoConciousSub" class="form-group hidden">
+            {{ form.noconcioussub.label }}
+            {{ form.noconcioussub() }}
+        </div>
+        <div id="YesConcious" class="form-group hidden">
+            {{ form.id_331() }}
+            {{ form.id_331.label }}
+            <br>
+            {{ form.id_337() }}
+            {{ form.id_337.label }}
+            <br>
+            {{ form.id_327() }}
+            {{ form.id_327.label }}
+            <br>
+            {{ form.id_307() }}
+            {{ form.id_307.label }}
+            <br>
+            {{ form.id_308() }}
+            {{ form.id_308.label }}
+            <br>
+            {{ form.hangover.label }}
+            {{ form.hangover() }}
+        </div>
+        <div id="Hangover_alc" class="form-group hidden">
+            {{ form.alcohol_.label }}
+            {{ form.alcohol_() }}
+            
+        </div>
+        <div id="Hangover_ndrg" class="form-group hidden">
+            
+            {{ form.alc_drg.label }}
+            {{ form.alc_drg() }}
+        </div>
+        <div id="WellConcious" class="form-group hidden">
+            <div class="dropdown">
+                <button class="dropbtn">รู้สึกตัวดี</button>
+                <div class="dropdown-content">
+                    <a href="#" data-target="sectionPain">อาการปวด</a>
+                    <a href="#" data-target="sectionInjury">อาการบาดเจ็บ</a>
+                    <a href="#" data-target="sectionOther">อื่นๆ</a> 
+                </div>
+            </div>
+        </div>
+        <div id="sectionPain" class="form-group hidden">
+            <h6>อาการปวด</h6>
+            {{ form.id_289() }}
+            {{ form.id_289.label }}
+            <br>
+            {{ form.headache() }}
+            {{ form.headache.label }}
+            <br>
+            {{ form.backache() }}
+            {{ form.backache.label }}
+            <br>
+            {{ form.id_317() }}
+            {{ form.id_317.label }}
+        </div>
+    
+        <div id="sectionInjury" class="form-group hidden">
+            <h6>อาการบาดเจ็บ</h6>
+            {{ form.id_289() }}
+            {{ form.id_289.label }}
+            <br>
+            {{ form.headache() }}
+            {{ form.headache.label }}
+            <br>
+            {{ form.backache() }}
+            {{ form.backache.label }}
+        </div>
+    
+        <div id="sectionOther" class="form-group hidden">
+            <h6>อื่นๆ</h6>
+
+            {{ form.vision.label }}
+            {{ form.vision() }}
+            
+            <br>
+            {{ form.fever.label }}
+            {{ form.fever() }}
+            
+            <br>
+            {{ form.id_26() }}
+            {{ form.id_26.label }}
+            <br>
+            {{ form.id_25() }}
+            {{ form.id_25.label }}
+            <br>
+            {{ form.id_321() }}
+            {{ form.id_321.label }}
+            
+        </div>
+
+        <div id="Fever" class="form-group hidden">
+            {{ form.id_325() }}
+            {{ form.id_325.label }}
+            
+            <br>
+            {{ form.id_345() }}
+            {{ form.id_345.label }}
+            <br>
+            {{ form.id_339() }}
+            {{ form.id_339.label }}
+            <br>
+            {{ form.id_342() }}
+            {{ form.id_342.label }}
+            
+        </div>
+        <div class="next">
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+    
+{% block Q_script %}
+
+<!-- <script >
+    document.getElementById('linkPain').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('sectionPain').style.display = 'block';
+        });
+
+        document.getElementById('linkInjury').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('sectionInjury').style.display = 'block';
+        });
+
+        document.getElementById('linkOther').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('sectionOther').style.display = 'block';
+        });
+</script> -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const NoConcious = document.querySelector('input[name="conciousness"][value="id_297"]');
+        const NoConciousDiv = document.getElementById('NoConcious');
+        
+        function Unconcious(){
+            if (NoConcious.checked) {
+                NoConciousDiv.classList.remove('hidden');
+            } else {
+                NoConciousDiv.classList.add('hidden');
+            }
+        }
+        
+        const NoConciousSub = document.querySelector('input[name="id_335"]');  // Assuming you meant id_335 instead of id_355
+        const NoConciousSubDiv = document.getElementById('NoConciousSub');
+        
+        function Subunconcious(){
+            if (NoConciousSub.checked) {
+                NoConciousSubDiv.classList.remove('hidden');
+            } else {
+                NoConciousSubDiv.classList.add('hidden');
+            }
+        }
+        
+        const YesConcious = document.querySelector('input[name="conciousness"][value="concious"]');
+        const YesConciousDiv = document.getElementById('YesConcious');
+
+        function Concious(){
+            if (YesConcious.checked) {
+                YesConciousDiv.classList.remove('hidden');
+            } else {
+                YesConciousDiv.classList.add('hidden');
+            }
+        }
+
+        const Alcohol = document.querySelector('input[name="hangover"][value="alcohol"]');
+        const Both = document.querySelector('input[name="hangover"][value="both"]');
+        const Hangover_ALC = document.getElementById('Hangover_alc');
+        const Hangover_nDRG = document.getElementById('Hangover_ndrg');
+
+        function HangOver(){
+            if (Alcohol.checked) {
+                Hangover_ALC.classList.remove('hidden');
+            } else {
+                Hangover_ALC.classList.add('hidden');
+            }
+            if (Both.checked) {
+                Hangover_nDRG.classList.remove('hidden');
+            } else {
+                Hangover_nDRG.classList.add('hidden');
+            }
+        }
+
+        const WellConcious_ = document.querySelector('input[name="id_331"]');
+        const WellConciousDiv = document.getElementById('WellConcious');
+
+        function WellConcious(){
+            if (WellConcious_.checked) {
+                WellConciousDiv.classList.remove('hidden');
+            } else {
+                WellConciousDiv.classList.add('hidden');
+            }
+        }
+
+        const Fever = document.querySelector('input[name="fever"][value="havefever"]');
+        const HavefeverDiv = document.getElementById('Fever');
+
+        function Havefever(){
+            if (Fever.checked) {
+                HavefeverDiv.classList.remove('hidden');
+            } else {
+                HavefeverDiv.classList.add('hidden');
+            }
+        }
+
+        NoConcious.addEventListener('change', Unconcious);
+        NoConciousSub.addEventListener('change', Subunconcious);
+        YesConcious.addEventListener('change', Concious)
+        Alcohol.addEventListener('change', HangOver);
+        Both.addEventListener('change', HangOver);
+        WellConcious_.addEventListener('change', WellConcious);
+        Fever.addEventListener('change', Havefever)
+
+
+        Unconcious();
+        Subunconcious();
+        Concious();
+        HangOver();
+        WellConcious();
+        Havefever();
+
+        const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+    
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}
